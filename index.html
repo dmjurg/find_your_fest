@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="guide">
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+  </head>
+  <body>
+
+    <div ng-controller="GuideController as guide">
+      <div ng-repeat="event in guide.events">
+        <div ng-hide="event.soldOut">
+          <ul class= "list-group">
+            <li class = "list-group-item"><h1>{{ event.name }}</h1>
+            <img ng-src="{{ event.image }}"/>
+            <p>{{ event.startDate }} <span ng-hide="!event.endDate">- {{ event.endDate }}</span></p>
+            <p>{{ event.location }}</p>
+            <p>{{ event.price | currency }}</p>
+            <button ng-show="event.canPurchase">Buy tix</button></li>
+
+            <section ng-controller="PanelController as panel">
+              <ul class="nav nav-pills">
+                <li ng-class="{ active:panel.isSelected(1) }"> <a href ng-click="panel.selectTab(1)">Details</a> </li>
+                <li ng-class="{ active:panel.isSelected(2) }"> <a href ng-click="panel.selectTab(2)">Bands</a></li>
+                <li ng-class="{ active:panel.isSelected(3) }"> <a href ng-click="panel.selectTab(3)">Message Board</a></li>
+              </ul>
+
+              <div class="panel" ng-show="panel.isSelected(1)">
+                <h2>Details</h2>
+                <p>{{ event.details }}</p>
+              </div>
+              <div class="panel" ng-show="panel.isSelected(2)">
+                <h2>Bands</h2>
+                <p> {{ event.bands }}</p>
+              </div>
+              <div class="panel" ng-show="panel.isSelected(3)">
+                <h2>Message Board</h2>
+              </div>
+            </section>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+
+  </body>
+</html>
