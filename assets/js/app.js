@@ -28,7 +28,19 @@
       soldOut: false,
       image: 'assets/images/landmark.jpg',
       details: 'DCs first major music festival, to benefit preservation of the National Mall',
-      bands: ["The Strokes", "Drake", "Alt-J", "and many more"]
+      bands: ["The Strokes", "Drake", "Alt-J", "and many more"],
+      messages: [
+        {
+          body: "I'm so excited to play!",
+          category: "general",
+          author: "julianc@test.com"
+        },
+        {
+          body: "Definitely seeing Drake",
+          category: "lineup",
+          author: "meekm@test.com"
+        }
+      ]
     },
     {
       name: 'All Things Go',
@@ -41,3 +53,5 @@
     }
   ];
 })();
+
+// message cats: general, travel, lineup
