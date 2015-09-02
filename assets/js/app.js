@@ -17,6 +17,16 @@
     };
   });
 
+  app.controller('MessageController', function(){
+    this.message = {};
+
+    this.addMessage = function(event) {
+      event.messages.push(this.message);
+      this.message = {};
+    }
+
+  })
+
   var festivals = [
       {
       name: 'Landmark',
