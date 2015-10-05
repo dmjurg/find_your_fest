@@ -23,9 +23,9 @@
     this.addMessage = function(event) {
       event.messages.push(this.message);
       this.message = {};
-    }
+    };
 
-  })
+  });
 
   var festivals = [
       {

@@ -49,13 +49,13 @@
                       <textarea class="form-control" id="messageBody" ng-model="messageCtrl.message.body"></textarea>
                     </div>
                     <div class="radioButtons">
-                      <input ng-model="messageCtrl.message.category" type="radio" value="general"> general
-                      <input ng-model="messageCtrl.message.category" type="radio" value="travel"> travel
-                      <input ng-model="messageCtrl.message.category" type="radio" value="lineup"> lineup
+                      <input ng-model="messageCtrl.message.category" type="radio" value="general" ng-required="!messageCtrl.message.category"> general
+                      <input ng-model="messageCtrl.message.category" type="radio" value="travel" ng-required="!messageCtrl.message.category"> travel
+                      <input ng-model="messageCtrl.message.category" type="radio" value="lineup" ng-required="!messageCtrl.message.category"> lineup
                     </div>
                     <div class="form-group">
                       <label for="messageAuthor">by:</label>
-                      <input ng-model="messageCtrl.message.author" type="email" id="messageAuthor"/>
+                      <input ng-model="messageCtrl.message.author" type="email" id="messageAuthor" required/>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                   </form>
