@@ -38,7 +38,7 @@
                     <p>{{ message.body }} ({{ message.category }})</p>
                     <cite class="clear fix"> - {{ message.author }}</cite>
                   </blockquote>
-                  <form name="messageForm" ng-controller="MessageController as messageCtrl" ng-submit="messageCtrl.addMessage(event)">
+                  <form name="messageForm" ng-controller="MessageController as messageCtrl" ng-submit="messageForm.$valid && messageCtrl.addMessage(event)">
                     <blockquote>
                       <p>{{ messageCtrl.message.body }} ({{ messageCtrl.message.category }})</p>
                       <cite class="clear fix"> - {{ messageCtrl.message.author }}</cite>

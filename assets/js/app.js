@@ -59,9 +59,19 @@
       location: 'Washington, DC',
       canPurchase: true,
       soldOut: false,
-      image: 'assets/images/atgfcflyer.jpg'
+      image: 'assets/images/atgfcflyer.jpg',
+      details: 'A sweet, day-long festival in the heart of DC!',
+      bands: ["Kygo, Penguin Prison"],
+      messages: [
+        {
+          body: "ATG is the best",
+          category: "general",
+          author: "adrian@test.com"
+        }
+      ]
     }
   ];
+
 })();
 
 // message cats: general, travel, lineup
