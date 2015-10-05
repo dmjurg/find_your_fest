@@ -6,25 +6,44 @@
   });
 
   app.controller('PanelController', function() {
-    this.tab = null;
 
-    this.selectTab = function(setTab) {
-      this.tab = setTab;
-    };
-
-    this.isSelected = function(checkTab) {
-      return this.tab === checkTab;
-    };
   });
 
-  app.controller('MessageController', function(){
+  app.controller('MessageController', function() {
     this.message = {};
 
     this.addMessage = function(event) {
+      this.message.createdOn = Date.now();
       event.messages.push(this.message);
       this.message = {};
     };
 
+  });
+
+  app.directive("festivalInfo", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'festival-info.html'
+    };
+  });
+
+  app.directive("festivalPanels", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'festival-panels.html',
+      controller: function() {
+        this.tab = null;
+
+        this.selectTab = function(setTab) {
+          this.tab = setTab;
+        };
+
+        this.isSelected = function(checkTab) {
+          return this.tab === checkTab;
+        };
+      },
+      controllerAs: 'panel'
+    };
   });
 
   var festivals = [

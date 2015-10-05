@@ -1,0 +1,6 @@
+<li class = "list-group-item"><h1>{{ event.name }}</h1>
+<img ng-src="{{ event.image }} "/>
+<p>{{ event.startDate }} <span ng-hide="!event.endDate">- {{ event.endDate }}</span></p>
+<p>{{ event.location }}</p>
+<p>{{ event.price | currency }}</p>
+<button ng-show="event.canPurchase">Buy tix</button></li>

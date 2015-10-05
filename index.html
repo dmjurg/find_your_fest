@@ -10,57 +10,8 @@
       <div ng-repeat="event in guide.events">
         <div ng-hide="event.soldOut">
           <ul class= "list-group">
-            <li class = "list-group-item"><h1>{{ event.name }}</h1>
-            <img ng-src="{{ event.image }} "/>
-            <p>{{ event.startDate }} <span ng-hide="!event.endDate">- {{ event.endDate }}</span></p>
-            <p>{{ event.location }}</p>
-            <p>{{ event.price | currency }}</p>
-            <button ng-show="event.canPurchase">Buy tix</button></li>
-
-            <section ng-controller="PanelController as panel">
-              <ul class="nav nav-pills">
-                <li ng-class="{ active:panel.isSelected(1) }"> <a href ng-click="panel.selectTab(1)">Details</a> </li>
-                <li ng-class="{ active:panel.isSelected(2) }"> <a href ng-click="panel.selectTab(2)">Bands</a></li>
-                <li ng-class="{ active:panel.isSelected(3) }"> <a href ng-click="panel.selectTab(3)">Message Board</a></li>
-              </ul>
-
-              <div class="panel" ng-show="panel.isSelected(1)">
-                <h2>Details</h2>
-                <p>{{ event.details }}</p>
-              </div>
-              <div class="panel" ng-show="panel.isSelected(2)">
-                <h2>Bands</h2>
-                <p> {{ event.bands }}</p>
-              </div>
-              <div class="panel" ng-show="panel.isSelected(3)">
-                <h2>Message Board</h2>
-                  <blockquote ng-repeat="message in event.messages">
-                    <p>{{ message.body }} ({{ message.category }})</p>
-                    <cite class="clear fix"> - {{ message.author }}</cite>
-                  </blockquote>
-                  <form name="messageForm" ng-controller="MessageController as messageCtrl" ng-submit="messageForm.$valid && messageCtrl.addMessage(event)">
-                    <blockquote>
-                      <p>{{ messageCtrl.message.body }} ({{ messageCtrl.message.category }})</p>
-                      <cite class="clear fix"> - {{ messageCtrl.message.author }}</cite>
-                    </blockquote>
-
-                    <div class="form-group">
-                      <label for="messageBody">What's up?</label>
-                      <textarea class="form-control" id="messageBody" ng-model="messageCtrl.message.body"></textarea>
-                    </div>
-                    <div class="radioButtons">
-                      <input ng-model="messageCtrl.message.category" type="radio" value="general" ng-required="!messageCtrl.message.category"> general
-                      <input ng-model="messageCtrl.message.category" type="radio" value="travel" ng-required="!messageCtrl.message.category"> travel
-                      <input ng-model="messageCtrl.message.category" type="radio" value="lineup" ng-required="!messageCtrl.message.category"> lineup
-                    </div>
-                    <div class="form-group">
-                      <label for="messageAuthor">by:</label>
-                      <input ng-model="messageCtrl.message.author" type="email" id="messageAuthor" required/>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
-              </div>
-            </section>
+            <festival-info></festival-info>
+            <festival-panels></festival-panels>
           </ul>
         </div>
       </div>
