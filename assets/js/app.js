@@ -1,5 +1,5 @@
 (function(){
-  var app = angular.module('guide', []);
+  var app = angular.module('guide', ['festival-directives']);
 
   app.controller('GuideController', function() {
     this.events = festivals;
@@ -18,32 +18,6 @@
       this.message = {};
     };
 
-  });
-
-  app.directive("festivalInfo", function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'festival-info.html'
-    };
-  });
-
-  app.directive("festivalPanels", function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'festival-panels.html',
-      controller: function() {
-        this.tab = null;
-
-        this.selectTab = function(setTab) {
-          this.tab = setTab;
-        };
-
-        this.isSelected = function(checkTab) {
-          return this.tab === checkTab;
-        };
-      },
-      controllerAs: 'panel'
-    };
   });
 
   var festivals = [
